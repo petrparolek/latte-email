@@ -1,5 +1,5 @@
 # Contributte Latte - email filter
-  
+
 Latte filter based on Smarty idea to protect your email address.
 
 ## Content
@@ -17,13 +17,13 @@ composer require contributte/latte-email
 
 Register filter (in case you use nette/di)
 
-```yaml
+```neon
 services:
-    nette.latteFactory:
-        setup:
-            - addFilter('email', 'Contributte\Latte\Helpers\EmailHelper::mailto')
-            # or
-            - addFilter('email', ['Contributte\Latte\Helpers\EmailHelper', 'mailto'])
+	nette.latteFactory:
+		setup:
+			- addFilter('email', 'Contributte\Latte\Helpers\EmailHelper::mailto')
+			# or
+			- addFilter('email', ['Contributte\Latte\Helpers\EmailHelper', 'mailto'])
 ```
 
 Alternatively you can also add filter directly to template
@@ -31,10 +31,10 @@ Alternatively you can also add filter directly to template
 ```php
 use Contributte\Latte\Email\Helpers\EmailHelper;
 
-public function createTemplate() 
+public function createTemplate()
 {
-    $template = parent::createTemplate();
-    $template->addFilter('email', [EmailHelper::class, 'mailto']);
+	$template = parent::createTemplate();
+	$template->addFilter('email', [EmailHelper::class, 'mailto']);
 }
 ```
 
